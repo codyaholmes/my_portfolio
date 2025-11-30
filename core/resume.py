@@ -61,7 +61,7 @@ with experience:
 
             col1, col2 = st.columns(2)
             with col1:
-                st.markdown(f":material/calendar_today: **{start} - {end}**")
+                st.markdown(f":material/calendar_today: **{start} -> {end}**")
             with col2:
                 if remote:
                     st.markdown(
@@ -134,7 +134,7 @@ with experience:
         )
 
 with education:
-    expanding = st.toggle("Expand/Collapse", value=False, key="edu_expand")
+    expanding = st.toggle("Expand/Collapse", value=True, key="edu_expand")
 
     for edu in edu_data:
         degree = edu["degree"]
@@ -148,7 +148,7 @@ with education:
             st.markdown(f"##### {school}")
             col1, col2 = st.columns(2)
             with col1:
-                st.markdown(f":material/calendar_today: **{start} - {end}**")
+                st.markdown(f":material/calendar_today: **{start} -> {end}**")
             with col2:
                 st.markdown(
                     f'<div style="text-align: right;"><b>{location}</b></div>',
@@ -160,7 +160,7 @@ with education:
                 st.markdown(bullets_markdown)
 
 with certifications:
-    expanding = st.toggle("Expand/Collapse", value=False, key="cert_expand")
+    expanding = st.toggle("Expand/Collapse", value=True, key="cert_expand")
 
     for cert in certs_data:
         name = cert["name"]
@@ -180,13 +180,21 @@ with certifications:
 
         with st.expander(name, expanded=expanding):
             st.markdown(f"##### {agency}")
-            st.markdown(f":material/calendar_today: {start} - {end}")
+            st.markdown(f":material/calendar_today: {start} -> {end}")
             if number:
                 st.markdown(f"- Certication Number: {number}")
             if link:
                 st.link_button("See certification", url=link)
 
 with skills:
+    st.markdown("**Skills Legend**")
+    st.markdown(
+        """
+        :gray-badge[Beginner] -> :violet-badge[Intermediate] -> :blue-badge[Advanced] -> :green-badge[Expert]
+        - - -
+    """
+    )
+
     markdown_list = []
     # Sort skills; if no name found use triple z to put it at the end
     skills_data = sorted(skills_data, key=lambda item: item.get("name", "zzz"))
@@ -199,9 +207,9 @@ with skills:
         if level == "beginner":
             color = "gray"
         elif level == "intermediate":
-            color = "blue"
-        elif level == "advanced":
             color = "violet"
+        elif level == "advanced":
+            color = "blue"
         elif level == "expert":
             color = "green"
         else:

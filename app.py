@@ -13,14 +13,25 @@ hr_analytics = st.Page(
 platos_pizza = st.Page(
     "portfolio/platos_pizza.py", title="Plato's Pizza", icon=":material/local_pizza:"
 )
-search = st.Page("tools/search.py", title="Search", icon=":material/search:")
-history = st.Page("tools/history.py", title="History", icon=":material/history:")
+google_form = st.Page(
+    "portfolio/google_form.py",
+    title="Google Sheets Intake",
+    icon=":material/add_row_above:",
+)
+# search = st.Page("tools/search.py", title="Search", icon=":material/search:")
+# history = st.Page("tools/history.py", title="History", icon=":material/history:")
 pages = {
     "General": [home, resume],
-    "Portfolio": [inflation_comparison, hr_analytics, platos_pizza],
-    "Tools": [search, history],
+    "Portfolio": [inflation_comparison, hr_analytics, platos_pizza, google_form],
+    # "Tools": [search, history],
 }
 
 pg = st.navigation(pages=pages)
+with st.sidebar:
+    st.text_input(
+        "What is your name?",
+        key="users_name",
+        help="Names are special. I'd like to address you personally in my app. No data collection here!",
+    )
 
 pg.run()

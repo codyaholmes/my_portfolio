@@ -13,16 +13,24 @@ st.html(
 )
 
 st.title("HR Analytics")
-st.subheader("Summary")
-st.text(
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis officiis minima ullam nobis omnis laborum reprehenderit quas! Quia quos, mollitia fugit obcaecati, consectetur deserunt, incidunt animi illum itaque optio aperiam libero iste ipsum repudiandae pariatur aliquid ipsam dolorem illo quas!"
-)
 
-st.caption(
-    "**Note**: If you are viewing on mobile, the iframe may not work as expected! Desktop view is recommended."
-)
-components.iframe(
-    "https://app.powerbi.com/view?r=eyJrIjoiY2Q5YjlmMTctZGU0Zi00NzE1LTkzNGUtOTlmYjVjNjJhZDU0IiwidCI6IjcwZGUxOTkyLTA3YzYtNDgwZi1hMzE4LWExYWZjYmEwMzk4MyIsImMiOjN9",
-    height=800,
-    width=width,
-)
+header = st.container()
+with header:
+    st.subheader("Summary")
+    st.markdown(
+        """
+        Using a sample human resources [dataset](https://www.kaggle.com/datasets/rhuebner/human-resources-data-set) from Kaggle, this data was cleaned to derve a simple, executive-ready sample of common HR metrics, such as headcount and turnover. One cool hidden feature of this report is its hover features. I like to give my end-users as much context as possible without taking up real estate. Try hovering over every colored card in the dashboard to gain some important context! Another important design element that I included was the coordination of colors. Headcount is :blue-background[blue]. Terminations are :orange-background[orange]. Turnover is :violet-background[violet], etc. This strategy makes the audience implicity associate ideas across the page.
+        - - - 
+    """
+    )
+
+dashboard = st.container()
+with dashboard:
+    st.caption(
+        "**Note**: If you are viewing on mobile, the iframe may not work as expected! Desktop view is recommended."
+    )
+    components.iframe(
+        "https://app.powerbi.com/view?r=eyJrIjoiY2Q5YjlmMTctZGU0Zi00NzE1LTkzNGUtOTlmYjVjNjJhZDU0IiwidCI6IjcwZGUxOTkyLTA3YzYtNDgwZi1hMzE4LWExYWZjYmEwMzk4MyIsImMiOjN9",
+        height=800,
+        width=width,
+    )
