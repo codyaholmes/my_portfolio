@@ -4,6 +4,7 @@ from core.data.experience import data as experience_data
 from core.data.certifications import data as certs_data
 from core.data.education import data as edu_data
 from datetime import datetime
+from pathlib import Path
 import json
 import time
 
@@ -122,7 +123,7 @@ with experience:
             width="stretch",
         )
     with col4:
-        with open("core\data\Cody Holmes Resume.pdf", "rb") as f:
+        with open(str(Path("core") / "data" / "Cody Holmes Resume.pdf"), "rb") as f:
             pdf = f.read()
         st.download_button(
             "PDF",

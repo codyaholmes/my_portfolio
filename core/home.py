@@ -2,13 +2,14 @@ import streamlit as st
 from core.data.experience import data as exp_data
 from datetime import datetime as dt
 from dateutil.relativedelta import relativedelta as rd
+from pathlib import Path
 
 
 st.title("Welcome!")
 
 col1, col2 = st.columns([1, 3])
 with col1:
-    st.image("core\images\profile_pic.jfif", width=168)
+    st.image(str(Path("core") / "images" / "profile_pic.jfif"), width=168)
 with col2:
     users_name = st.session_state["users_name"]
     users_name = users_name if not None or users_name not in ["", " "] else None
