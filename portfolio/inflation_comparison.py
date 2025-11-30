@@ -9,16 +9,14 @@ st.title("Inflation Comparison")
 
 header = st.container()
 with header:
-    st.subheader("Summary")
-    st.markdown(
-        f"""
-        Having a degree in political science, it's hard for me to leave my first love behind sometimes. Over the past election cycles, we've heard a lot about inflation, especially as it relates to recent presidencies. I wanted to compare the data for myself. No news fluff. No political agenda. Just data.
-                
-        This data maintains a direct connection with the Federal Reserve's FRED API website. It will update up as new inflation data is posted. Now that's what I call automated reporting!
-        - - -
-    """
-    )
-    # st.text("Lorem ipsum " * 20)
+    with st.expander("Summary"):
+        st.markdown(
+            f"""
+            Having a degree in political science, it's hard for me to leave my first love behind sometimes. Over the past election cycles, we've heard a lot about inflation, especially as it relates to recent presidencies. I wanted to compare the data for myself. No news fluff. No political agenda. Just data.
+                    
+            This data maintains a direct connection with the Federal Reserve's FRED API website. It will update up as new inflation data is posted. Now that's what I call automated reporting!
+        """
+        )
 
 
 # Fetch FRED API data

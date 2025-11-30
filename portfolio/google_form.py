@@ -8,15 +8,14 @@ import uuid
 worksheet_viewer_url = "https://docs.google.com/spreadsheets/d/1d3UxAwOAz-rYsZjn_f4Qic-msmPzOwLf4127hAxBOyc/edit?usp=sharing"
 
 st.title("Google Sheets Intake")
-st.subheader("Summary")
-st.markdown(
-    f"""
-    Great data visualization starts with great data entry. And while Google Sheets doesn't really serve as a great database, it does the job here.
+with st.expander("Summary"):
+    st.markdown(
+        f"""
+        Great data visualization starts with great data entry. And while Google Sheets doesn't really serve as a great database, it does the job here.
 
-    This page is just a highlight of my skills to navigate an API and send data in a modeled way. The form below has a many-to-one relationship among certain fields. You can see how I land that data into two "tables" in [this]({worksheet_viewer_url}) Google Sheet.
-    ___
-"""
-)
+        This page is just a highlight of my skills to navigate an API and send data in a modeled way. The form below has a many-to-one relationship among certain fields. You can see how I land that data into two "tables" in [this]({worksheet_viewer_url}) Google Sheet.
+    """
+    )
 
 # Google Sheets auth and connection
 cred_keys = {

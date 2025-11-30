@@ -2,7 +2,6 @@ import streamlit as st
 from core.data.experience import data as exp_data
 from datetime import datetime as dt
 from dateutil.relativedelta import relativedelta as rd
-from streamlit_extras.let_it_rain import rain
 
 
 st.title("Welcome!")

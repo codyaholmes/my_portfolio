@@ -13,13 +13,13 @@ st.html(
 )
 
 st.title("Plato's Pizza")
-st.subheader("Summary")
-st.markdown(
-    """
-    Creatively designed dashboard made with Power BI. This product was a result of a [data challenge](https://mavenanalytics.io/challenges/maven-pizza-challenge) offered by Maven Analytics. This project exemplifies my ability to build highly customized and stylized reports that draw user attention. For example, my favorite visualization is the weekly-time heatmap, showing stakeholders where the busiest times are.
-    - - -
-    """
-)
+
+with st.expander("Summary"):
+    st.markdown(
+        """
+        Creatively designed dashboard made with Power BI. This product was a result of a [data challenge](https://mavenanalytics.io/challenges/maven-pizza-challenge) offered by Maven Analytics. This project exemplifies my ability to build highly customized and stylized reports that draw user attention. For example, my favorite visualization is the weekly-time heatmap, showing stakeholders where the busiest times are.
+        """
+    )
 
 st.caption(
     "**Note**: If you are viewing on mobile, the iframe may not work as expected! Desktop view is recommended."
