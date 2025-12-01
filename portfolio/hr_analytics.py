@@ -20,7 +20,7 @@ st.html(
 with st.expander("Summary"):
     st.markdown(
         """
-        Using a sample human resources [dataset](https://www.kaggle.com/datasets/rhuebner/human-resources-data-set) from Kaggle, this data was cleaned to derve a simple, executive-ready sample of common HR metrics, such as headcount and turnover. One cool hidden feature of this report is its hover features. I like to give my end-users as much context as possible without taking up real estate. Try hovering over every colored card in the dashboard to gain some important context! Another important design element that I included was the coordination of colors. Headcount is :blue-background[blue]. Terminations are :orange-background[orange]. Turnover is :violet-background[violet], etc. This strategy makes the audience implicity associate ideas across the page.
+        Using a sample human resources [dataset](https://www.kaggle.com/datasets/rhuebner/human-resources-data-set) from Kaggle, this data was cleaned to deriove a simple, executive-ready Power BI report of common HR metrics, such as headcount and turnover. One cool hidden feature of this report is its hover features. I like to give my end-users as much context as possible without taking up real estate. Try hovering over every colored card in the dashboard to gain some further insight! Another important design element that I included was the coordination of colors. Headcount is :blue-background[blue]. Terminations are :orange-background[orange]. Turnover is :violet-background[violet], etc. This strategy makes the audience implicity associate ideas across the page.
     """
     )
 
