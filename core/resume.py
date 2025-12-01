@@ -64,16 +64,10 @@ with experience:
             with col1:
                 st.markdown(f":material/calendar_today: **{start} -> {end}**")
             with col2:
-                if remote:
-                    st.markdown(
-                        f'<div style="text-align: right;"><b>{location}</b> ☑️ Remote</div>',
-                        unsafe_allow_html=True,
-                    )
-                else:
-                    st.markdown(
-                        f'<div style="text-align: right;"><b>{location}</b></div>',
-                        unsafe_allow_html=True,
-                    )
+                st.markdown(
+                    f'<div style="text-align: right;"><b>{location}</b></div>',
+                    unsafe_allow_html=True,
+                )
 
             if summary and not show_bullets:
                 st.text(summary)
