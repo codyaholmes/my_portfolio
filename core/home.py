@@ -32,7 +32,7 @@ with col1:
     for start, end in zip(starts, ends):
         datedelta = rd(end, start)
         total_exp_yrs += datedelta.years
-        total_exp_yrs += datedelta.months / 12
+        total_exp_yrs += round(datedelta.months / 12, 2)
 
     st.metric(
         "Total Experience",

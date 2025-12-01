@@ -59,15 +59,8 @@ with experience:
 
         with st.expander(position, expanded=expanding):
             st.markdown(f"##### {employer}")
-
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown(f":material/calendar_today: **{start} -> {end}**")
-            with col2:
-                st.markdown(
-                    f'<div style="text-align: right;"><b>{location}</b></div>',
-                    unsafe_allow_html=True,
-                )
+            st.markdown(f"_{location}_")
+            st.markdown(f":material/calendar_today: **{start} -> {end}**")
 
             if summary and not show_bullets:
                 st.text(summary)
@@ -141,14 +134,8 @@ with education:
 
         with st.expander(degree, expanded=expanding):
             st.markdown(f"##### {school}")
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown(f":material/calendar_today: **{start} -> {end}**")
-            with col2:
-                st.markdown(
-                    f'<div style="text-align: right;"><b>{location}</b></div>',
-                    unsafe_allow_html=True,
-                )
+            st.markdown(f"_{location}_")
+            st.markdown(f":material/calendar_today: **{start} -> {end}**")
             if bullets:
                 bullet_list_markdown = [f"- {b}" for b in bullets]
                 bullets_markdown = "\n".join(bullet_list_markdown)
