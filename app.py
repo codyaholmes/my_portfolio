@@ -13,6 +13,9 @@ hr_analytics = st.Page(
 platos_pizza = st.Page(
     "portfolio/platos_pizza.py", title="Plato's Pizza", icon=":material/local_pizza:"
 )
+book_scraper = st.Page(
+    "portfolio/book_scraper.py", title="Book Scraper", icon=":material/book:"
+)
 google_form = st.Page(
     "portfolio/google_form.py",
     title="Google Sheets Intake",
@@ -22,7 +25,13 @@ google_form = st.Page(
 # history = st.Page("tools/history.py", title="History", icon=":material/history:")
 pages = {
     "General": [home, resume],
-    "Portfolio": [inflation_comparison, hr_analytics, platos_pizza, google_form],
+    "Portfolio": [
+        inflation_comparison,
+        hr_analytics,
+        platos_pizza,
+        book_scraper,
+        google_form,
+    ],
     # "Tools": [search, history],
 }
 

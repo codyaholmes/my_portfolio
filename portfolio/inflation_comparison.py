@@ -7,16 +7,21 @@ import pandas as pd
 
 st.title("Inflation Comparison")
 
-header = st.container()
-with header:
-    with st.expander("Summary"):
-        st.markdown(
-            f"""
-            Having a degree in political science, it's hard for me to leave my first love behind sometimes. Over the past election cycles, we've heard a lot about inflation, especially as it relates to recent presidencies. I wanted to compare the data for myself. No news fluff. No political agenda. Just data.
-                    
-            This data maintains a direct connection with the Federal Reserve's FRED API website. It will update up as new inflation data is posted. Now that's what I call automated reporting!
-        """
-        )
+# SUMMARY SECTION
+with st.expander("Summary"):
+    st.markdown(
+        f"""
+        Having a degree in political science, it's hard for me to leave my first love behind sometimes. Over the past election cycles, we've heard a lot about inflation, especially as it relates to recent presidencies. I wanted to compare the data for myself. No news fluff. No political agenda. Just data.
+                
+        This data maintains a direct connection with the Federal Reserve's FRED API website. It will update up as new inflation data is posted. Now that's what I call automated reporting!
+    """
+    )
+
+# ANALYSIS HEADER SECTION
+st.subheader("Biden vs. Trump Inflation (CPI) Comparison")
+st.caption(
+    "**Notes**: CPI Growth Index is an easy way to calculate percentage change when starting index at 100. A value of 115 means inflation has grown by 15% (115 - 100 = 15). Month of Presidency is the nth month of a term. Since presidents can only serve four-year terms, 48 is the max."
+)
 
 
 # Fetch FRED API data
@@ -63,18 +68,10 @@ def cleaned_df(data, pres_term_label):
 dt1_df = cleaned_df(dt1_data, "Trump 45")
 jb1_df = cleaned_df(jb1_data, "Biden 46")
 dt2_df = cleaned_df(dt2_data, "Trump 47")
-
-# Main dataset
-cpi_df = pd.concat([dt1_df, jb1_df, dt2_df], axis=0)
-
-st.subheader("Biden vs. Trump Inflation (CPI) Comparison")
-st.caption(
-    "**Notes**: CPI Growth Index is an easy way to calculate percentage change when starting index at 100. A value of 115 means inflation has grown by 15% (115 - 100 = 15). Month of Presidency is the nth month of a term. Since presidents can only serve four-year terms, 48 is the max."
-)
+cpi_df = pd.concat([dt1_df, jb1_df, dt2_df], axis=0)  # Main dataset
 
 
 pres_term_options = list(cpi_df["Category"].unique())
-# pres_term_options = ["Trump 45", "Biden 46", "Trump 47"]
 term_selections = st.multiselect(
     "Select a presidential term",
     pres_term_options,
@@ -83,6 +80,7 @@ term_selections = st.multiselect(
 )
 
 
+# VISUALIZATION AREA
 tabs = ["Chart", "Dataframe"]
 main_chart, dataframe = st.tabs(tabs)
 
@@ -157,6 +155,7 @@ with dataframe:
     focused_df_pvt = focused_df.pivot(columns="Category", index="Month", values="CPI")
     st.dataframe(focused_df_pvt[term_selections])
 
+# TAKEAWAYS SECTION
 st.subheader("Key Takeaways")
 st.caption("Takeaways last updated as of November 29, 2025.")
 st.markdown(

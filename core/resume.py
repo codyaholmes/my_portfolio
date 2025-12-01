@@ -12,6 +12,7 @@ import time
 st.title("Cody Holmes, MPA")
 
 
+# HEADER SECTION
 @st.dialog("Contact Info")
 def show_info():
     st.markdown(
@@ -34,6 +35,7 @@ if "show_info" not in st.session_state:
 text = "Analytics leader with 10+ years of experience turning data into business strategy. Proven track record in leading cross-functional teams, scaling reporting systems, leading data warehousing, and driving organizational transformation through analytics. Skilled at translating data into action—and action into results!."
 st.caption(text)
 
+# CONTENT SECTIONS
 # Order of tabs matters in how they are displayed
 tabs = ["Experience", "Education", "Certifications", "Skills"]
 experience, education, certifications, skills = st.tabs(tabs)

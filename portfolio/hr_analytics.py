@@ -1,6 +1,10 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+
+st.title("HR Analytics")
+
+# PAGE STYLING
 width = 1400
 st.html(
     f"""
@@ -12,9 +16,7 @@ st.html(
 """
 )
 
-st.title("HR Analytics")
-
-header = st.container()
+# SUMMARY SECTION
 with st.expander("Summary"):
     st.markdown(
         """
@@ -22,6 +24,7 @@ with st.expander("Summary"):
     """
     )
 
+# DASHBOARD AREA
 dashboard = st.container()
 with dashboard:
     st.caption(
